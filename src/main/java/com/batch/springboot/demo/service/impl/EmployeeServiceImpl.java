@@ -47,10 +47,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public String applyForLoan(LoanRequest loanRequest) {
 		
-		RateOfInterest roi = roiRepository.findByRoiBetweenLoanFromAndLoanTo(loanRequest.getLoanAmount());
+		Employee emp = getEmployee(loanRequest.getEmpId());
+		
+		if(Optional.ofNullable(emp).isPresent()) {
+			RateOfInterest roi = roiRepository.findByRoiBetweenLoanFromAndLoanTo(emp.getSalary());
+			if(Optional.ofNullable(roi).isPresent()) {
+				
+				
+				System.out.println(roi);
+			} 
+		} 
+		
+		RateOfInterest roi = roiRepository.findByRoiBetweenLoanFromAndLoanTo(emp.getSalary());
 		
 		if(Optional.ofNullable(roi).isPresent()) {
-			System.out.println();
+			System.out.println(roi);
 		} 
 		
 

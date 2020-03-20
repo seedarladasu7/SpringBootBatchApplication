@@ -42,13 +42,7 @@ public class EmployeeController {
 	@PostMapping("/loan/apply")
 	public ResponseEntity<Employee> applyForLoan(@RequestBody LoanRequest loanRequest) {
 
-		Employee emp = employeeService.getEmployee(Integer.valueOf(loanRequest.getEmpId()));
-
-		if (Optional.ofNullable(emp).isPresent()) {
-			employeeService.applyForLoan(loanRequest);
-		} else {
-			log.debug("Employee not found with id: " + loanRequest.getEmpId());
-		}
+		employeeService.applyForLoan(loanRequest);
 
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}

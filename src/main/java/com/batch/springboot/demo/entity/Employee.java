@@ -43,8 +43,7 @@ public class Employee {
 	@Column
 	private Double salary;
 	
-	@OneToMany
-	@JoinColumn(name = "emp_id")
-	private List<LoanAccount> loanAccountd;
+	@OneToMany(mappedBy = "employee")
+	private List<LoanAccount> loanAccount;
 	
 }

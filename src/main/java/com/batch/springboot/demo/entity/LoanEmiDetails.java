@@ -35,11 +35,11 @@ public class LoanEmiDetails {
 	@Column(name = "paid_on")
 	private Date paidOn;
 	
-	@Column(name = "remaining_bale")
+	@Column(name = "remaining_bal")
 	private Double remainingBal;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "loan_id")
+	@JoinColumn(name = "loan_id", insertable = false, updatable = false)
 	@JsonBackReference
 	private LoanAccount loanAccount;
 

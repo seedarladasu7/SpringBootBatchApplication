@@ -39,13 +39,14 @@ public class LoanAccount {
 	@Column(name = "emi")
 	private Double emi;
 	
-	@OneToMany
-	@JoinColumn(name = "loan_id")
-	private List<LoanEmiDetails> loanEmiDetails;	
-	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "emp_id")
+	@JoinColumn(name = "emp_id", insertable = false, updatable = false)
 	@JsonBackReference
 	private Employee employee;
+	
+	@OneToMany(mappedBy = "loanAccount")
+	private List<LoanEmiDetails> loanEmiDetails;	
+	
+	
 
 }

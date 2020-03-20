@@ -8,24 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
-@Table(name = "emi_rates")
+@Table(name = "rate_of_interest")
 @Data
-public class EmiRates {
+@ToString
+public class RateOfInterest {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "emi_rate_id")
 	private Integer emiRateId;
 	
-	@Column(name = "loan_from")
-	private double loanFrom;
+	@Column(name = "salary_from")
+	private double salaryFrom;
 	
-	@Column(name = "loan_to")
-	private double loanTo;
+	@Column(name = "salary_to")
+	private double salaryTo;
 	
-	@Column(name = "rate_of_interest")
-	private double rateOfInterest;
+	@Column(name = "roi")
+	private double roi;
 
 }

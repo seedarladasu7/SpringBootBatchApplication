@@ -41,9 +41,7 @@ public class Employee {
     private String aadhar;
     
 	@Column
-	private Double salary;
+	private Float salary;
 	
-	@OneToMany(mappedBy = "employee")
-	private List<LoanAccount> loanAccount;
 	
 }

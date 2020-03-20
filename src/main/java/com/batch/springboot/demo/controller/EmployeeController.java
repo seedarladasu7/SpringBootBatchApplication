@@ -1,7 +1,5 @@
 package com.batch.springboot.demo.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.batch.springboot.demo.entity.Employee;
-import com.batch.springboot.demo.entity.RateOfInterest;
 import com.batch.springboot.demo.model.LoanRequest;
-import com.batch.springboot.demo.model.RoiRequest;
+import com.batch.springboot.demo.model.RateOfInterestRequest;
 import com.batch.springboot.demo.service.EmployeeService;
-
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/employee")
-@Slf4j
 public class EmployeeController {
 
 	@Autowired
@@ -34,17 +28,13 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/registerRoi")
-	public ResponseEntity<String> registerRateOfInterest(@RequestBody RoiRequest roiRequest) {
-
+	public ResponseEntity<String> registerRateOfInterest(@RequestBody RateOfInterestRequest roiRequest) {
 		return new ResponseEntity<>(employeeService.registerRateOfInterest(roiRequest), HttpStatus.OK);
 	}
 
 	@PostMapping("/loan/apply")
-	public ResponseEntity<Employee> applyForLoan(@RequestBody LoanRequest loanRequest) {
-
-		employeeService.applyForLoan(loanRequest);
-
-		return new ResponseEntity<>(null, HttpStatus.OK);
+	public ResponseEntity<String> applyForLoan(@RequestBody LoanRequest loanRequest) {
+		return new ResponseEntity<>(employeeService.applyForLoan(loanRequest), HttpStatus.OK);
 	}
 
 }

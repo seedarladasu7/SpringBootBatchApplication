@@ -2,6 +2,7 @@ package com.batch.springboot.demo.entity;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,19 +27,16 @@ public class LoanEmiDetails {
 	@Column(name = "loan_emi_id")
 	private Integer loanEmiId;
 	
-	@Column(name = "loan_id")
-	private Integer loanId;
-	
 	@Column(name = "emi_paid")
-	private Double emiPaid;
+	private Float emiPaid;
 	
 	@Column(name = "paid_on")
 	private Date paidOn;
 	
-	@Column(name = "remaining_bal")
-	private Double remainingBal;
+	@Column(name = "remaining_loan_amt")
+	private Float remainingLoanAmt;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "loan_id", insertable = false, updatable = false)
 	@JsonBackReference
 	private LoanAccount loanAccount;

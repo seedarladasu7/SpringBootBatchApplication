@@ -10,6 +10,6 @@ import com.batch.springboot.demo.entity.RateOfInterest;
 public interface RoiRepository extends JpaRepository<RateOfInterest, Integer>{
 	
 	@Query("from RateOfInterest WHERE :salary between salaryFrom and salaryTo")
-	public RateOfInterest findByRoiBetweenLoanFromAndLoanTo(double salary);
+	public RateOfInterest findByRoiBetweenLoanFromAndLoanTo(float salary);
 
 }

@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class RoiRequest {
 
-	private double salaryFrom;
-	private double salaryTo;
-	private double roi;
+	private float salaryFrom;
+	private float salaryTo;
+	private float roi;
 
 }

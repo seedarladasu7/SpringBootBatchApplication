@@ -1,10 +1,10 @@
 package com.batch.springboot.demo.entity;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,25 +27,22 @@ public class LoanAccount {
 	@Column(name = "loan_id")
 	private Integer loanId;
 	
-	@Column(name = "emp_id")
-	private Integer empId;
-	
 	@Column(name = "loan_requested")
-	private Double loanRequested;
+	private Float loanRequested;
 	
 	@Column(name = "rate_of_interest")
-	private Double rateOfInterest;
+	private Float rateOfInterest;
 	
 	@Column(name = "emi")
-	private Double emi;
+	private Float emi;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "emp_id", insertable = false, updatable = false)
+	@ManyToOne
+	@JoinColumn(name = "emp_id")
 	@JsonBackReference
 	private Employee employee;
 	
-	@OneToMany(mappedBy = "loanAccount")
-	private List<LoanEmiDetails> loanEmiDetails;	
+	@OneToMany(mappedBy = "loanAccount", cascade = CascadeType.ALL)
+	private Set<LoanEmiDetails> loanEmiDetails;	
 	
 	
 

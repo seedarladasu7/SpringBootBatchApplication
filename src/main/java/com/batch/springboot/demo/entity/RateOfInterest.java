@@ -22,12 +22,12 @@ public class RateOfInterest {
 	private Integer emiRateId;
 	
 	@Column(name = "salary_from")
-	private double salaryFrom;
+	private Float salaryFrom;
 	
 	@Column(name = "salary_to")
-	private double salaryTo;
+	private Float salaryTo;
 	
 	@Column(name = "roi")
-	private double roi;
+	private Float roi;
 
 }

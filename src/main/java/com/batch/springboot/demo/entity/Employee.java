@@ -1,10 +1,14 @@
 package com.batch.springboot.demo.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -15,7 +19,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class Employee {
- 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "emp_id")
@@ -38,5 +42,9 @@ public class Employee {
     
 	@Column
 	private Double salary;
+	
+	@OneToMany
+	@JoinColumn(name = "emp_id")
+	private List<LoanAccount> loanAccountd;
 	
 }

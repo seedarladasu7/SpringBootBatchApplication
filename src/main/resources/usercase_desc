@@ -22,7 +22,9 @@ Employee (EmpId, Username, gender, age, PAN, Aadhar, Salary)
 
 EMI Rates (id, salary_from, salary_to, rate_of_interest)
 
-Loan_account (loan_id, emp_id, loan_requested, rate_of_interest, emi, remaining_balance)
+Loan_account (loan_id, emp_id, loan_requested, rate_of_interest, emi)
+
+Loan_emi_details (loan_emi_id, emi_paid, emi_paid_on, remaining_balance)
 
 
 

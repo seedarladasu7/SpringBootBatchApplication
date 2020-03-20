@@ -18,10 +18,11 @@ public class Employee {
  
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@Column(name = "emp_id")
+	private Integer empId;
 	
-	@Column(name = "user_name")
-    private String userName;
+	@Column(name = "emp_name")
+    private String empName;
 	
 	@Column
     private String gender;

@@ -1,0 +1,32 @@
+
+1.      Read user data from CSV file and load to the application database (Username, gender, age, PAN, Aadhar, Salary) - Spring batch
+
+2.      User can apply for a loan providing the details of the loan (Loan amount, No of years)
+
+			- Automatically apply loan calculating the rate of interest and EMI amount based on salary and the loan details given by user and send the 
+			below details to the customer
+
+        Loan account created with balance details in negative (Eg: If loan amount is 3,00,000 balance in account will be – 3,00,000)
+
+3.      Run a scheduling job to reduce the EMI amount and update the balance (Scheduler)
+
+        Eg: After first run if EMI is 30,000 then loan amount will be reduced to -2,70,000
+
+4.      User can see the pending and paid EMI details
+
+5.  	User can see the balance in his loan account
+
+
+
+Employee (EmpId, Username, gender, age, PAN, Aadhar, Salary)
+
+EMI Rates (id, salary_from, salary_to, rate_of_interest)
+
+Loan_account (loan_id, emp_id, loan_requested, rate_of_interest, emi, remaining_balance)
+
+
+
+
+
+
+

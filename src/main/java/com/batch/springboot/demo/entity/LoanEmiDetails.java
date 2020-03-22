@@ -1,8 +1,7 @@
 package com.batch.springboot.demo.entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,10 +15,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Table(name = "loan_emi_details")
 @Data
+@ToString
 public class LoanEmiDetails {
 	
 	@Id
@@ -31,13 +32,13 @@ public class LoanEmiDetails {
 	private Float emiPaid;
 	
 	@Column(name = "paid_on")
-	private Date paidOn;
+	private Timestamp paidOn;
 	
 	@Column(name = "remaining_loan_amt")
 	private Float remainingLoanAmt;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "loan_id", insertable = false, updatable = false)
+	@JoinColumn(name = "loan_id")
 	@JsonBackReference
 	private LoanAccount loanAccount;
 

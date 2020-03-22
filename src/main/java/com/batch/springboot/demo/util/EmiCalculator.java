@@ -11,4 +11,11 @@ public class EmiCalculator {
 
 	}
 
+	public static float calculateInterest(float principal, float interestRate, int duration) {
+
+		float simpleInterest = (principal * interestRate * duration) / 100;
+		return simpleInterest;
+
+	}
+
 }

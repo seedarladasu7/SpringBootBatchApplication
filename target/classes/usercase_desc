@@ -28,6 +28,45 @@ Loan_emi_details (loan_emi_id, emi_paid, emi_paid_on, remaining_balance)
 
 
 
+{
+	"reteOfInterests": [
+			{
+				"salaryFrom":"0",
+				"salaryTo":"20000",
+				"roi":"8.99"
+			},
+			{
+				"salaryFrom":"20001",
+				"salaryTo":"50000",
+				"roi":"9.99"
+			},
+			{
+				"salaryFrom":"50001",
+				"salaryTo":"100000",
+				"roi":"10.99"
+			},
+			{
+				"salaryFrom":"100001",
+				"salaryTo":"300000",
+				"roi":"11.99"
+			},
+			{
+				"salaryFrom":"300001",
+				"salaryTo":"1000000",
+				"roi":"12.99"
+			}
+		
+		]
+	
+}
+
+
+{
+	"empId":"1",
+	"loanAmount":"100000",
+	"tenure":"2"
+}
+
 
 
 

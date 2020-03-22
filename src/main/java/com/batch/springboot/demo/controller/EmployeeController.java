@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.batch.springboot.demo.entity.Employee;
+import com.batch.springboot.demo.model.EmployeeLoanDetails;
 import com.batch.springboot.demo.model.LoanRequest;
 import com.batch.springboot.demo.model.RateOfInterestRequest;
 import com.batch.springboot.demo.service.EmployeeService;
@@ -29,12 +30,17 @@ public class EmployeeController {
 
 	@PostMapping("/registerRoi")
 	public ResponseEntity<String> registerRateOfInterest(@RequestBody RateOfInterestRequest roiRequest) {
-		return new ResponseEntity<>(employeeService.registerRateOfInterest(roiRequest), HttpStatus.OK);
+		return new ResponseEntity<>(employeeService.registerRateOfInterest(roiRequest), HttpStatus.ACCEPTED);
 	}
 
 	@PostMapping("/loan/apply")
 	public ResponseEntity<String> applyForLoan(@RequestBody LoanRequest loanRequest) {
-		return new ResponseEntity<>(employeeService.applyForLoan(loanRequest), HttpStatus.OK);
+		return new ResponseEntity<>(employeeService.applyForLoan(loanRequest), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("loan/view/{empId}")
+	public ResponseEntity<EmployeeLoanDetails> viewLoanDetails(@PathVariable("empId") String empId) {
+		return new ResponseEntity<>(employeeService.viewLoanDetails(empId), HttpStatus.OK);
 	}
 
 }

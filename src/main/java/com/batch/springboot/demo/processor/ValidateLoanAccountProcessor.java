@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.batch.springboot.demo.entity.LoanAccount;
-import com.batch.springboot.demo.entity.LoanEmiDetails;
 import com.batch.springboot.demo.service.EmployeeService;
 
 @Component
